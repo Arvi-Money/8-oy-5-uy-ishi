@@ -14,14 +14,14 @@ import alert from "../../assets/alert.svg";
 import alertHover from "../../assets/alertHover.svg";
 import alertFocus from "../../assets/alertFocus.svg";
 import arrow from "../../assets/arrow.svg";
-import currencyCodes from "../../data/data.json";
+import Data from "../../data/data.json";
 import infoCircle from "../../assets/infoCircle.svg";
 
 const Card: React.FC = () => {
   
   const [hovered, setHovered] = useState<string>("");
   const [clicked, setClicked] = useState<string>("");
-  const [currencyData, setCurrencyData] = useState<any[]>([]);
+  const [data, setData] = useState<any[]>([]);
   const [selectedCurrencyFrom, setSelectedCurrencyFrom] = useState<string>('USD - US Dollar');
   const [selectedCurrencyTo, setSelectedCurrencyTo] = useState<string>('UZS - Uzbekistan Som');
   const selectFromRef = useRef<HTMLSelectElement>(null);
@@ -31,7 +31,7 @@ const Card: React.FC = () => {
   const [selectedEl, setSelectedEl] = useState<any[]>([])
 
   useEffect(() => {
-    setCurrencyData(currencyCodes);
+    setData(Data);
   }, []);
 
   function handleArrow() {
@@ -41,7 +41,7 @@ const Card: React.FC = () => {
   }
 
   const findSelectedEl = () => {
-    const selected = currencyData.filter((currency) => currency.code == selectedCurrencyFrom)
+    const selected = data.filter((currency) => currency.code == selectedCurrencyFrom)
     setSelectedEl(selected);
     console.log(selectedEl);
     
@@ -164,8 +164,8 @@ useEffect(() => {
               }}
               value={selectedCurrencyFrom}
             >
-              {currencyData &&
-                currencyData.map((currency) => (
+              {data &&
+                data.map((currency) => (
                   <option key={currency.code} value={currency.code}>
                     <img src={currency.flag} alt="" />
                     <span className="span2">{currency.code}</span> -{" "}
@@ -191,8 +191,8 @@ useEffect(() => {
               }}
               value={selectedCurrencyTo}
             >
-              {currencyData &&
-                currencyData.map((currency) => (
+              {data &&
+                data.map((currency) => (
                   <option key={currency.code} value={currency.code}>
                     <img src={currency.flag} alt="" />
                     <span className="span2">{currency.code}</span> -{" "}
