@@ -147,7 +147,7 @@ useEffect(() => {
           Alert
         </li>
       </ul>
-      <div className="container main-wrapper d-flex flex-column">
+      <div className=" main-wrapper d-flex flex-column">
         <div className="d-flex amount-wrapper">
           <div className="d-flex flex-column inputArea">
             <label htmlFor="amount">Amount</label>
