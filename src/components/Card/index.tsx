@@ -24,14 +24,11 @@ const Card: React.FC = () => {
   const [currencyData, setCurrencyData] = useState<any[]>([]);
   const [selectedCurrencyFrom, setSelectedCurrencyFrom] = useState<string>('USD - US Dollar');
   const [selectedCurrencyTo, setSelectedCurrencyTo] = useState<string>('UZS - Uzbekistan Som');
-  // const toInputRef = useRef<HTMLInputElement>(null);
-  // const fromInputRef = useRef<HTMLInputElement>(null);
   const selectFromRef = useRef<HTMLSelectElement>(null);
   const selectToRef = useRef<HTMLSelectElement>(null);
   const amountRef = useRef<any>(1);
   const [isConverted, setIsConverted] = useState<Boolean>(false)
   const [selectedEl, setSelectedEl] = useState<any[]>([])
-  // const [error, setError]= useState<boolean>(false)
 
   useEffect(() => {
     setCurrencyData(currencyCodes);
@@ -191,7 +188,6 @@ useEffect(() => {
               ref={selectToRef}
               onChange={(event) => {
                 setSelectedCurrencyTo(event.target.value);
-                // Your additional function here
               }}
               value={selectedCurrencyTo}
             >
